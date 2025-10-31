@@ -5,6 +5,8 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import "../../styles/AuthStyles.css";
 
+const baseUrl = process.env.REACT_APP_API;
+
 const ForgotPassword = () => {
     const [email, setEmail] = useState("");
     const [newPassword, setNewPassword] = useState("");
@@ -16,7 +18,7 @@ const ForgotPassword = () => {
     const handelSubmit = async(e) =>{
         e.preventDefault();
         try {
-            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/forgot-password`,{
+            const res = await axios.post(`${baseUrl}/api/v1/auth/forgot-password`,{
                 email, 
                 newPassword, 
                 answer,
